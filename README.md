@@ -36,7 +36,7 @@ A web application that generates and downloads a medical bill as a PDF based on 
     
    ```bash
 ## Clone the repository:
-```git clone https://github.com/GonS11/consultas.git
+```git clone https://github.com/GonS11/Medical_Bill_Generator.git
 
 ## Install dependencies
 
