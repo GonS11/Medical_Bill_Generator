@@ -41,12 +41,6 @@ class ConsultController extends Controller
     {
         $bill = Bill::where('consult_id', '=', $id)->first();
 
-        if (!$bill) {
-            // Maneja el caso cuando no se encuentra una factura
-            return abort(404, 'Bill not found');
-        }
-
-        // Luego, puedes continuar con el procesamiento para generar el PDF
         $pdf = Pdf::loadView('consults.generate_bill', compact('bill'));
 
         return $pdf->download('bill-' . now()->format('Y-m-d-H-i-s') . '-' . $bill->id . '.pdf');

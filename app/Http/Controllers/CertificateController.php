@@ -21,13 +21,10 @@ class CertificateController extends Controller
 
     public function show(String $id)
     {
-        // Obtener la consulta de la base de datos
         $consult = Consult::with('pacient', 'doctor')->findOrFail($id);
 
-        // Cargar la vista con los datos
         $pdf = Pdf::loadView('certificate.generate_certificate', compact('consult'));
 
-        // Generar el PDF y devolverlo como descarga
-        return $pdf->download('certificate-' . now() . '-'  . $consult->id . '.pdf');
+        return $pdf->download('bill-' . now()->format('Y-m-d-H-i-s') . '-' . $consult->id . '.pdf');
     }
 }
